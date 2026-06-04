@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Optimisation -->
-    <title>Oliva Marrakech | Huile d'Olive Premium & Olives du Maroc</title>
+    <title>WASHINGTONIA | Huile d'Olive Premium & Olives du Maroc</title>
     <meta name="description"
-        content="Découvrez Oliva Marrakech, l'excellence de l'huile d'olive extra vierge et des olives artisanales marocaines. Qualité premium, 100% naturel.">
+        content="Découvrez WASHINGTONIA, l'excellence de l'huile d'olive extra vierge et des olives artisanales marocaines. Qualité premium, 100% naturel.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.olivamarrakech.com/">
-    <meta property="og:title" content="Oliva Marrakech | Huile d'Olive Premium">
+    <meta property="og:url" content="https://www.washingtonia.com/">
+    <meta property="og:title" content="WASHINGTONIA | Huile d'Olive Premium">
     <meta property="og:description"
         content="Le goût authentique de l'olive marocaine. Production artisanale haut de gamme.">
     <meta property="og:image" content="https://ik.imagekit.io/t7f24dkfq/imageolive/ol1.jpg">
@@ -56,10 +56,10 @@
 {
   "@context": "https://schema.org",
   "@type": "FoodProduction",
-  "name": "Oliva Marrakech",
+  "name": "WASHINGTONIA",
   "image": "https://ik.imagekit.io/t7f24dkfq/imageolive/ol1.jpg",
-  "@id": "https://www.olivamarrakech.com/#organization",
-  "url": "https://www.olivamarrakech.com/",
+  "@id": "https://www.washingtonia.com/#organization",
+  "url": "https://www.washingtonia.com/",
   "telephone": "+212661939056",
   "priceRange": "$$",
   "address": {
@@ -88,8 +88,8 @@
     "closes": "19:00"
   },
   "sameAs": [
-    "https://www.facebook.com/olivamarrakech",
-    "https://www.instagram.com/olivamarrakech"
+    "https://www.facebook.com/washingtonia",
+    "https://www.instagram.com/washingtonia"
   ]
 }
 </script>
@@ -101,23 +101,97 @@
     <!-- LOADER ANIMÉ -->
     <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-stone-900 text-amber-400 loader">
         <div class="text-center">
-            <h1 class="font-serif text-4xl tracking-widest animate-pulse mb-4">OLIVA MARRAKECH</h1>
+            <h1 class="font-serif text-4xl tracking-widest animate-pulse mb-4">WASHINGTONIA</h1>
             <div class="w-16 h-[2px] bg-amber-400 mx-auto animate-scale"></div>
         </div>
     </div>
 
     <!-- NAVBAR STICKY & TRANSPARENTE -->
-    <nav :class="scrolle ? 'bg-white/90 dark:bg-neutral-900/90 shadow-lg backdrop-blur-md py-4' : 'bg-transparent py-6'"
+    <nav :class="scrolle ? 'bg-white/90 dark:bg-neutral-900/90 shadow-lg backdrop-blur-md py-4 text-neutral-900 dark:text-stone-100' : 'bg-transparent py-6 text-white'"
         class="fixed w-full top-0 left-0 z-40 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-bold tracking-wider text-olive-800 dark:text-amber-400">OLIVA
-                MARRAKECH</a>
+            <a href="#" :class="scrolle ? 'text-olive-800 dark:text-amber-400' : 'text-white'"
+                class="font-serif text-2xl font-bold tracking-wider flex items-center gap-3 transition-colors">
+                <img src="https://ik.imagekit.io/t7f24dkfq/imageolive/logo-olive.jpeg" alt="Logo Washingtonia"
+                    class="w-10 h-10 object-cover rounded-full shadow-sm border border-amber-500">
+                <span>WASHINGTONIA</span>
+            </a>
 
             <!-- Menu Desktop -->
-            <div class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+            <div class="hidden xl:flex items-center space-x-6 font-medium text-sm tracking-wide">
                 <a href="#accueil" class="hover:text-amber-500 transition shadow-link">Accueil</a>
-                <a href="#produits" class="hover:text-amber-500 transition">Nos Produits</a>
-                <a href="#apropos" class="hover:text-amber-500 transition">À Propos</a>
+
+                <!-- Dropdown Nos Services -->
+                <div class="relative group" x-data="{ open: false }" @mouseenter="open = true"
+                    @mouseleave="open = false">
+                    <a href="#services" @click="open = true"
+                        class="hover:text-amber-500 transition flex items-center space-x-1 cursor-pointer">
+                        <span>Nos Services</span> <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </a>
+                    <div x-show="open" x-transition style="display: none;"
+                        class="absolute left-0 mt-6 w-[350px] bg-white dark:bg-neutral-800 rounded-lg shadow-2xl border border-neutral-100 dark:border-neutral-700 text-sm overflow-hidden z-50">
+                        <div class="p-4">
+                            <!-- B1 -->
+                            <div
+                                class="text-amber-600 dark:text-amber-400 font-bold mb-2 pb-1 border-b border-neutral-100 dark:border-neutral-700 text-xs uppercase tracking-wider">
+                                Conseil - Production</div>
+                            <div class="grid grid-cols-2 gap-1 mb-4">
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Irrigation</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Ferti - irrigation</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Engrais Foliaires</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Traitements Phytosanitaires</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    La Taille</a>
+                            </div>
+
+                            <!-- B2 -->
+                            <div
+                                class="text-amber-600 dark:text-amber-400 font-bold mb-2 pb-1 border-b border-neutral-100 dark:border-neutral-700 text-xs uppercase tracking-wider">
+                                Sous-traitance oléicole</div>
+                            <div class="space-y-1 mb-4 text-xs">
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Plantation mécanisée avec GPS</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Récolte Mécanique par Enjambeur</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Récolte Mécanique avec Buggy</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Récolte Mécanique avec Parapluie Inversé</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    La Taille</a>
+                                <a href="#"
+                                    class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
+                                    Récolte Manuelle (Olives de Tables)</a>
+                            </div>
+
+                            <!-- B3 -->
+                            <div class="pt-3 border-t border-neutral-100 dark:border-neutral-700">
+                                <a href="#"
+                                    class="block px-2 hover:text-amber-500 transition text-amber-600 dark:text-amber-400 font-bold text-sm">Etude
+                                    de Faisabilité Technique et Financière</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#boutiques" class="hover:text-amber-500 transition">Boutiques</a>
+                <a href="#blog" class="hover:text-amber-500 transition">Blog</a>
+                <a href="#coin-ia" class="hover:text-amber-500 transition">Coin IA pour l'Olivier</a>
+                <a href="#formation" class="hover:text-amber-500 transition">Formation</a>
                 <a href="#contact" class="hover:text-amber-500 transition">Contact</a>
             </div>
 
@@ -130,7 +204,7 @@
                         <span x-text="lang"></span> <i class="fa-solid fa-chevron-down text-xs"></i>
                     </button>
                     <div x-show="open" @click.away="open = false"
-                        class="absolute right-0 mt-2 w-24 bg-white dark:bg-neutral-800 rounded shadow-xl border border-neutral-100 dark:border-neutral-700 text-sm overflow-hidden">
+                        class="absolute right-0 mt-2 w-24 bg-white dark:bg-neutral-800 rounded shadow-xl border border-neutral-100 dark:border-neutral-700 text-sm text-neutral-900 dark:text-stone-100 overflow-hidden">
                         <button @click="lang = 'fr'; open = false"
                             class="w-full text-left px-4 py-2 hover:bg-amber-50 dark:hover:bg-neutral-700">FR</button>
                         <button @click="lang = 'en'; open = false"
@@ -152,7 +226,7 @@
     <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0 bg-stone-900">
             <img src="https://ik.imagekit.io/t7f24dkfq/ol7(1).png"
-                class="w-full h-full object-cover scale-105 filter brightness-50" alt="Oliva Marrakech Accueil">
+                class="w-full h-full object-cover scale-105 filter brightness-50" alt="WASHINGTONIA Accueil">
         </div>
         <div class="relative z-10 text-center text-white px-4 max-w-4xl" data-aos="fade-up" data-aos-duration="1500">
             <span class="text-amber-400 tracking-widest uppercase font-semibold text-sm mb-4 block">Héritage Premium
@@ -162,9 +236,9 @@
             <p class="text-lg md:text-xl font-light text-stone-200 mb-8 max-w-2xl mx-auto">Une sélection d'huiles
                 d'olive extra-vierges et d'olives d'exception, issues des terroirs ensoleillés au pied de l'Atlas.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#produits"
-                    class="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold tracking-wide rounded shadow-lg transition duration-300 transform hover:-translate-y-1">Découvrir
-                    nos produits</a>
+                <a href="#boutiques"
+                    class="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold tracking-wide rounded shadow-lg transition duration-300 transform hover:-translate-y-1">Visiter
+                    nos boutiques</a>
                 <a href="https://wa.me/21261939056" target="_blank"
                     class="w-full sm:w-auto px-8 py-4 border border-white hover:bg-white/10 text-white font-semibold tracking-wide rounded backdrop-blur-sm transition duration-300">Commander
                     maintenant</a>
@@ -219,16 +293,200 @@
         </div>
     </section>
 
-    <!-- PAGE NOS PRODUITS (AVEC FILTRE DYNAMIQUE) -->
-    <section id="produits" class="py-24 bg-stone-50 dark:bg-neutral-900 transition-colors"
+    <!-- SECTION NOS SERVICES -->
+    <section id="services" x-data="{ modalOpen: false, modalTitle: '', modalDesc: '' }"
+        class="py-24 bg-white dark:bg-neutral-950 transition-colors border-t border-neutral-100 dark:border-neutral-900 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <div
+                    class="w-20 h-20 mx-auto mb-6 bg-amber-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-amber-600 shadow-lg">
+                    <i class="fa-solid fa-tractor text-3xl"></i>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Nos Services Oléicoles</h2>
+                <div class="h-[1px] w-20 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-neutral-600 dark:text-stone-300 text-lg leading-relaxed">
+                    Découvrez notre gamme complète de services dédiés à l'oléiculture. Cliquez sur un service pour en
+                    savoir plus.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+                <!-- 1. Conseil - Production -->
+                <div class="bg-stone-50 dark:bg-neutral-900 p-8 rounded-2xl shadow-sm hover:shadow-md transition"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <i class="fa-solid fa-leaf text-amber-500 text-3xl"></i>
+                        <h3 class="font-serif text-2xl font-bold">Conseil - Production</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li><button
+                                @click="modalTitle='Irrigation'; modalDesc='L\'irrigation raisonnée est essentielle pour optimiser la croissance de l\'olivier, améliorer le rendement et garantir la qualité des olives tout en préservant les ressources en eau.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Irrigation</span>
+                                <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Ferti - irrigation'; modalDesc='La ferti-irrigation combine l\'apport d\'eau et de nutriments essentiels directement aux racines de l\'olivier, assurant une nutrition ciblée et une efficacité maximale des engrais.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Ferti
+                                    - irrigation</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Engrais Foliaires'; modalDesc='L\'application d\'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles, corrigeant instantanément les carences et stimulant la floraison et la nouaison.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Engrais
+                                    Foliaires</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Traitements Phytosanitaires'; modalDesc='Nos protocoles de traitements phytosanitaires protègent vos oliviers contre les maladies et les ravageurs, en utilisant des méthodes respectueuses de l\'environnement et des normes de sécurité.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Traitements
+                                    Phytosanitaires</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='La Taille'; modalDesc='La taille de fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la pénétration de la lumière et assurer une récolte abondante et régulière année après année.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>La
+                                    Taille</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2. Sous-traitance oléicole -->
+                <div class="bg-stone-50 dark:bg-neutral-900 p-8 rounded-2xl shadow-sm hover:shadow-md transition"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <i class="fa-solid fa-gears text-amber-500 text-3xl"></i>
+                        <h3 class="font-serif text-2xl font-bold">Sous-traitance oléicole</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li><button
+                                @click="modalTitle='Plantation mécanisée avec GPS'; modalDesc='Une plantation de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une densité optimale et un gain de temps considérable pour vos nouvelles parcelles.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Plantation
+                                    mécanisée (GPS)</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Récolte Mécanique par Enjambeur'; modalDesc='Solution idéale pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité exceptionnelle et préserve la qualité des olives en limitant les chocs.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
+                                    par Enjambeur</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Récolte Mécanique avec Buggy'; modalDesc='Le secoueur type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles, en secouant le tronc sans endommager l\'arbre.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
+                                    avec Buggy</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Récolte Mécanique avec Parapluie Inversé'; modalDesc='Ce système combine secouage et réception simultanée des olives avant qu\'elles ne touchent le sol, garantissant une propreté et une intégrité parfaites du fruit.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
+                                    Parapluie Inversé</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='La Taille Mécanisée'; modalDesc='Des interventions de taille rapides et uniformes, indispensables pour maîtriser le volume des arbres et faciliter le passage des engins de récolte.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>La
+                                    Taille</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+
+                        <li><button
+                                @click="modalTitle='Récolte Manuelle (Olives de Tables)'; modalDesc='Une cueillette délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la table et éviter toute meurtrissure.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
+                                    Manuelle</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. Etude de Faisabilité -->
+                <div class="bg-stone-50 dark:bg-neutral-900 p-8 rounded-2xl shadow-sm hover:shadow-md transition"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <i class="fa-solid fa-chart-line text-amber-500 text-3xl"></i>
+                        <h3 class="font-serif text-2xl font-bold">Étude de Faisabilité</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li><button
+                                @click="modalTitle='Etude de Faisabilité Technique et Financière'; modalDesc='Avant tout investissement, nous réalisons un diagnostic complet de vos sols, du climat et des ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la viabilité de votre projet oléicole.'; modalOpen=true"
+                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Étude
+                                    Technique et Financière</span> <i
+                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div x-show="modalOpen" style="display: none;" class="fixed inset-0 z-50 flex items-center justify-center">
+            <!-- Overlay -->
+            <div x-show="modalOpen" x-transition.opacity class="absolute inset-0 bg-stone-900/60 backdrop-blur-sm"
+                @click="modalOpen = false"></div>
+
+            <!-- Modal Content -->
+            <div x-show="modalOpen" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+                x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-200"
+                x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+                x-transition:leave-end="opacity-0 scale-95 translate-y-4"
+                class="relative bg-white dark:bg-neutral-900 w-full max-w-lg mx-4 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden z-10">
+
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div
+                            class="w-12 h-12 bg-amber-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-amber-600 mb-4">
+                            <i class="fa-solid fa-info text-xl"></i>
+                        </div>
+                        <button @click="modalOpen = false"
+                            class="text-neutral-400 hover:text-neutral-600 dark:hover:text-stone-300 transition">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+
+                    <h3 class="font-serif text-2xl font-bold mb-3" x-text="modalTitle"></h3>
+                    <div class="h-[2px] w-12 bg-amber-500 mb-4"></div>
+                    <p class="text-neutral-600 dark:text-stone-300 leading-relaxed" x-text="modalDesc"></p>
+                </div>
+
+                <div
+                    class="bg-stone-50 dark:bg-neutral-950 p-4 border-t border-neutral-100 dark:border-neutral-800 text-right">
+                    <button @click="modalOpen = false"
+                        class="px-6 py-2 bg-emerald-800 hover:bg-emerald-900 text-white font-medium rounded-lg transition shadow-md">
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BOUTIQUES -->
+    <section id="boutiques" class="py-24 bg-stone-50 dark:bg-neutral-900 transition-colors"
         x-data="{ categorie: 'all' }">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Notre Collection Exclusive
-                </h2>
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <div
+                    class="w-20 h-20 mx-auto mb-6 bg-amber-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-amber-600 shadow-lg">
+                    <i class="fa-solid fa-store text-3xl"></i>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Nos Boutiques</h2>
                 <div class="h-[1px] w-20 bg-amber-500 mx-auto mb-6"></div>
-                <p class="text-neutral-500 dark:text-stone-400" data-aos="fade-up" data-aos-delay="100">Parcourez nos
-                    trésors gustatifs issus des meilleures variétés d'olives de Marrakech.</p>
+                <p class="text-neutral-600 dark:text-stone-300 text-lg leading-relaxed mb-6">
+                    Visitez nos boutiques en ligne pour découvrir notre sélection exclusive d'huiles d'olive premium et
+                    d'olives de table artisanales. Une qualité exceptionnelle, directement du producteur à votre table.
+                </p>
+                <p class="text-neutral-500 dark:text-stone-400 text-sm">Parcourez nos trésors gustatifs issus des
+                    meilleures variétés d'olives de Marrakech.</p>
             </div>
 
             <!-- Filtres -->
@@ -376,6 +634,81 @@
         </div>
     </section>
 
+    <!-- SECTION BLOG -->
+    <section id="blog"
+        class="py-24 bg-stone-50 dark:bg-neutral-900 transition-colors border-t border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <div
+                    class="w-20 h-20 mx-auto mb-6 bg-amber-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-amber-600 shadow-lg">
+                    <i class="fa-solid fa-newspaper text-3xl"></i>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Blog & Actualités</h2>
+                <div class="h-[1px] w-20 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-neutral-600 dark:text-stone-300 text-lg leading-relaxed">
+                    Restez informé des dernières actualités, astuces et innovations dans le monde de l'oléiculture.
+                    Notre blog est votre source d'information privilégiée pour suivre les tendances agricoles,
+                    comprendre les enjeux climatiques et découvrir des méthodes de culture modernes.
+                </p>
+                <div class="mt-8">
+                    <span
+                        class="inline-block bg-neutral-200 dark:bg-neutral-800 text-neutral-500 dark:text-stone-400 px-4 py-2 rounded-full text-sm font-semibold">Articles
+                        à venir prochainement...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION COIN IA -->
+    <section id="coin-ia" class="py-24 bg-stone-900 text-white transition-colors relative overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 w-64 h-64 bg-amber-500 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 bg-emerald-500 rounded-full blur-[100px]"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <div
+                    class="w-20 h-20 mx-auto mb-6 bg-stone-800 rounded-full flex items-center justify-center text-amber-400 shadow-[0_0_30px_rgba(251,191,36,0.3)] border border-stone-700">
+                    <i class="fa-solid fa-microchip text-3xl"></i>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Coin IA pour l'Olivier</h2>
+                <div class="h-[1px] w-20 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-stone-300 text-lg leading-relaxed mb-8">
+                    Explorez l'avenir de l'agriculture avec nos solutions basées sur l'Intelligence Artificielle.
+                    Conçues pour optimiser le rendement, surveiller la santé de vos oliviers en temps réel et anticiper
+                    les besoins en irrigation, l'IA devient le meilleur allié de votre domaine oléicole.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FORMATION -->
+    <section id="formation"
+        class="py-24 bg-white dark:bg-neutral-950 transition-colors border-b border-neutral-200 dark:border-neutral-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <div
+                    class="w-20 h-20 mx-auto mb-6 bg-amber-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-amber-600 shadow-lg">
+                    <i class="fa-solid fa-graduation-cap text-3xl"></i>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Centre de Formation</h2>
+                <div class="h-[1px] w-20 bg-amber-500 mx-auto mb-6"></div>
+                <p class="text-neutral-600 dark:text-stone-300 text-lg leading-relaxed">
+                    Développez vos compétences et celles de vos équipes grâce à nos formations spécialisées. De
+                    l'initiation à la taille des oliviers jusqu'à la maîtrise des engins de récolte mécanisée, nous
+                    transmettons notre savoir-faire pour une agriculture plus performante et durable.
+                </p>
+                <div class="mt-8">
+                    <a href="#contact"
+                        class="inline-flex items-center space-x-2 bg-emerald-800 hover:bg-emerald-700 text-white px-6 py-3 rounded font-semibold transition shadow-md">
+                        <span>Demander le catalogue</span> <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACT & FORMULAIRE -->
     <section id="contact" class="py-24 bg-stone-50 dark:bg-neutral-900 transition-colors">
         <div class="max-w-7xl mx-auto px-6">
@@ -398,7 +731,7 @@
                             <div class="text-amber-500 text-xl mt-1"><i class="fa-solid fa-envelope"></i></div>
                             <div>
                                 <h4 class="font-semibold">Email Professionnel</h4>
-                                <p class="text-sm text-neutral-500 dark:text-stone-400">contact@olivamarrakech.com</p>
+                                <p class="text-sm text-neutral-500 dark:text-stone-400">contact@washingtonia.com</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -452,7 +785,7 @@
     <footer class="bg-stone-900 text-stone-300 py-12 border-t border-stone-800">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
-                <h3 class="font-serif text-xl font-bold text-white mb-4">OLIVA MARRAKECH</h3>
+                <h3 class="font-serif text-xl font-bold text-white mb-4">WASHINGTONIA</h3>
                 <p class="text-sm text-stone-400 max-w-xs">L'expression ultime du luxe agricole marocain. Des saveurs
                     mémorables, préservées de manière pure et durable.</p>
             </div>
@@ -476,7 +809,7 @@
         </div>
         <div
             class="max-w-7xl mx-auto px-6 pt-8 border-t border-stone-800 text-center text-xs text-stone-500 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 Oliva Marrakech. Tous droits réservés.</p>
+            <p>&copy; 2026 WASHINGTONIA. Tous droits réservés.</p>
             <p>Conçu avec raffinement au Maroc.</p>
         </div>
     </footer>
