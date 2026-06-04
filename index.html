@@ -58,32 +58,37 @@
             .navbar-container {
                 padding-left: 12px !important;
                 padding-right: 12px !important;
+                overflow: hidden;
             }
 
             .navbar-logo {
                 gap: 6px !important;
                 font-size: 0.95rem !important;
+                flex-shrink: 1 !important;
+                min-width: 0 !important;
+                overflow: hidden;
             }
 
             .navbar-logo img {
-                width: 30px !important;
-                height: 30px !important;
+                width: 28px !important;
+                height: 28px !important;
+                flex-shrink: 0;
             }
 
             .navbar-logo .logo-text {
-                max-width: 120px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
 
             .navbar-tools {
-                gap: 4px !important;
+                gap: 2px !important;
+                flex-shrink: 0 !important;
             }
 
             .navbar-tools button {
                 padding: 6px !important;
-                font-size: 1rem !important;
+                font-size: 1.1rem !important;
             }
 
             /* Reduce navbar vertical padding on mobile */
@@ -163,7 +168,7 @@
         class="fixed w-full top-0 left-0 z-40 transition-all duration-300">
         <div class="navbar-container max-w-7xl mx-auto px-3 sm:px-4 md:px-6 flex justify-between items-center">
             <a href="#" :class="scrolle ? 'text-olive-800 dark:text-amber-400' : 'text-white'"
-                class="navbar-logo font-serif text-base sm:text-lg md:text-2xl font-bold tracking-wider flex items-center gap-1.5 sm:gap-2 md:gap-3 transition-colors shrink-0 min-w-0">
+                class="navbar-logo font-serif text-base sm:text-lg md:text-2xl font-bold tracking-wider flex items-center gap-1.5 sm:gap-2 md:gap-3 transition-colors min-w-0">
                 <img src="https://ik.imagekit.io/t7f24dkfq/imageolive/logo-olive.jpeg" alt="Logo Washingtonia"
                     class="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 object-cover rounded-full shadow-sm border border-amber-500 shrink-0">
                 <span class="logo-text truncate">WASHINGTONIA</span>
@@ -291,117 +296,117 @@
                 </button>
             </div>
         </div>
+    </nav>
 
-        <!-- Mobile Menu Overlay -->
-        <div x-show="mobileMenuOpen" style="display: none;" class="fixed inset-0 z-50 flex xl:hidden">
-            <!-- Background -->
-            <div x-show="mobileMenuOpen" x-transition.opacity class="absolute inset-0 bg-stone-900/80 backdrop-blur-sm"
-                @click="mobileMenuOpen = false"></div>
+    <!-- Mobile Menu Overlay - OUTSIDE nav to avoid stacking context issues -->
+    <div x-show="mobileMenuOpen" style="display: none;" class="fixed inset-0 z-[60] flex xl:hidden">
+        <!-- Background -->
+        <div x-show="mobileMenuOpen" x-transition.opacity class="absolute inset-0 bg-stone-900/80 backdrop-blur-sm"
+            @click="mobileMenuOpen = false"></div>
 
-            <!-- Menu Panel -->
-            <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
-                x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="translate-x-0"
-                x-transition:leave-end="translate-x-full"
-                class="relative ml-auto w-[85%] max-w-sm h-full bg-white dark:bg-neutral-900 shadow-2xl flex flex-col overflow-y-auto">
+        <!-- Menu Panel -->
+        <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-300 transform"
+            x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition ease-in duration-200 transform" x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="translate-x-full"
+            class="relative ml-auto w-[85%] max-w-sm h-full bg-white dark:bg-neutral-900 shadow-2xl flex flex-col overflow-y-auto">
 
-                <div
-                    class="p-6 border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center text-neutral-900 dark:text-stone-100">
-                    <span class="font-serif text-2xl font-bold tracking-wider">MENU</span>
-                    <button @click="mobileMenuOpen = false" class="text-2xl hover:text-amber-500 transition">
-                        <i class="fa-solid fa-xmark"></i>
+            <div
+                class="p-6 border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center text-neutral-900 dark:text-stone-100">
+                <span class="font-serif text-2xl font-bold tracking-wider">MENU</span>
+                <button @click="mobileMenuOpen = false" class="text-2xl hover:text-amber-500 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 px-6 py-8 space-y-6 text-neutral-900 dark:text-stone-100">
+                <a href="#accueil" @click="mobileMenuOpen = false"
+                    class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Accueil</a>
+
+                <!-- Mobile Services Dropdown -->
+                <div x-data="{ openMobServ: false }">
+                    <button @click="openMobServ = !openMobServ"
+                        class="w-full flex justify-between items-center font-serif text-xl font-semibold hover:text-amber-500 transition">
+                        <span>Nos Services</span>
+                        <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
+                            :class="openMobServ ? 'rotate-180' : ''"></i>
                     </button>
-                </div>
+                    <div x-show="openMobServ" x-transition
+                        class="mt-4 pl-4 space-y-4 border-l-2 border-amber-500/30">
 
-                <div class="flex-1 px-6 py-8 space-y-6 text-neutral-900 dark:text-stone-100">
-                    <a href="#accueil" @click="mobileMenuOpen = false"
-                        class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Accueil</a>
-
-                    <!-- Mobile Services Dropdown -->
-                    <div x-data="{ openMobServ: false }">
-                        <button @click="openMobServ = !openMobServ"
-                            class="w-full flex justify-between items-center font-serif text-xl font-semibold hover:text-amber-500 transition">
-                            <span>Nos Services</span>
-                            <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
-                                :class="openMobServ ? 'rotate-180' : ''"></i>
-                        </button>
-                        <div x-show="openMobServ" x-transition
-                            class="mt-4 pl-4 space-y-4 border-l-2 border-amber-500/30">
-
-                            <div class="text-amber-600 font-bold text-xs uppercase tracking-wider">Conseil - Production
-                            </div>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Irrigation'; modalDesc='L\'irrigation raisonnée est essentielle pour optimiser la croissance de l\'olivier, améliorer le rendement et garantir la qualité des olives tout en préservant les ressources en eau.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Irrigation</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Ferti - irrigation'; modalDesc='La ferti-irrigation combine l\'apport d\'eau et de nutriments essentiels directement aux racines de l\'olivier, assurant une nutrition ciblée et une efficacité maximale des engrais.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- Ferti
-                                - irrigation</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Engrais Foliaires'; modalDesc='L\'application d\'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles, corrigeant instantanément les carences et stimulant la floraison et la nouaison.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Engrais Foliaires</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Traitements Phytosanitaires'; modalDesc='Nos protocoles de traitements phytosanitaires protègent vos oliviers contre les maladies et les ravageurs, en utilisant des méthodes respectueuses de l\'environnement et des normes de sécurité.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Traitements Phytosanitaires</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='La Taille'; modalDesc='La taille de fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la pénétration de la lumière et assurer une récolte abondante et régulière année après année.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- La
-                                Taille</a>
-
-                            <div class="text-amber-600 font-bold text-xs uppercase tracking-wider mt-6">Sous-traitance
-                                oléicole</div>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Plantation mécanisée avec GPS'; modalDesc='Une plantation de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une densité optimale et un gain de temps considérable pour vos nouvelles parcelles.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Plantation mécanisée (GPS)</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique par Enjambeur'; modalDesc='Solution idéale pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité exceptionnelle et préserve la qualité des olives en limitant les chocs.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Récolte par Enjambeur</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique avec Buggy'; modalDesc='Le secoueur type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles, en secouant le tronc sans endommager l\'arbre.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Récolte avec Buggy</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique avec Parapluie Inversé'; modalDesc='Ce système combine secouage et réception simultanée des olives avant qu\'elles ne touchent le sol, garantissant une propreté et une intégrité parfaites du fruit.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Récolte Parapluie Inversé</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='La Taille Mécanisée'; modalDesc='Des interventions de taille rapides et uniformes, indispensables pour maîtriser le volume des arbres et faciliter le passage des engins de récolte.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- La
-                                Taille Mécanisée</a>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Récolte Manuelle (Olives de Tables)'; modalDesc='Une cueillette délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la table et éviter toute meurtrissure.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
-                                Récolte Manuelle</a>
-
-                            <div class="text-amber-600 font-bold text-xs uppercase tracking-wider mt-6">Etude de
-                                Faisabilité</div>
-                            <a href="#services"
-                                @click="mobileMenuOpen=false; modalTitle='Etude de Faisabilité Technique et Financière'; modalDesc='Avant tout investissement, nous réalisons un diagnostic complet de vos sols, du climat et des ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la viabilité de votre projet oléicole.'; modalOpen=true"
-                                class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- Etude
-                                Technique et Financière</a>
+                        <div class="text-amber-600 font-bold text-xs uppercase tracking-wider">Conseil - Production
                         </div>
-                    </div>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Irrigation'; modalDesc='L\'irrigation raisonnée est essentielle pour optimiser la croissance de l\'olivier, améliorer le rendement et garantir la qualité des olives tout en préservant les ressources en eau.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Irrigation</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Ferti - irrigation'; modalDesc='La ferti-irrigation combine l\'apport d\'eau et de nutriments essentiels directement aux racines de l\'olivier, assurant une nutrition ciblée et une efficacité maximale des engrais.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- Ferti
+                            - irrigation</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Engrais Foliaires'; modalDesc='L\'application d\'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles, corrigeant instantanément les carences et stimulant la floraison et la nouaison.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Engrais Foliaires</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Traitements Phytosanitaires'; modalDesc='Nos protocoles de traitements phytosanitaires protègent vos oliviers contre les maladies et les ravageurs, en utilisant des méthodes respectueuses de l\'environnement et des normes de sécurité.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Traitements Phytosanitaires</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='La Taille'; modalDesc='La taille de fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la pénétration de la lumière et assurer une récolte abondante et régulière année après année.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- La
+                            Taille</a>
 
-                    <a href="#boutiques" @click="mobileMenuOpen = false"
-                        class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Boutiques</a>
-                    <a href="#blog" @click="mobileMenuOpen = false"
-                        class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Blog</a>
-                    <a href="#coin-ia" @click="mobileMenuOpen = false"
-                        class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Coin IA pour
-                        l'Olivier</a>
-                    <a href="#formation" @click="mobileMenuOpen = false"
-                        class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Formation</a>
-                    <a href="#contact" @click="mobileMenuOpen = false"
-                        class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Contact</a>
+                        <div class="text-amber-600 font-bold text-xs uppercase tracking-wider mt-6">Sous-traitance
+                            oléicole</div>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Plantation mécanisée avec GPS'; modalDesc='Une plantation de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une densité optimale et un gain de temps considérable pour vos nouvelles parcelles.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Plantation mécanisée (GPS)</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique par Enjambeur'; modalDesc='Solution idéale pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité exceptionnelle et préserve la qualité des olives en limitant les chocs.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Récolte par Enjambeur</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique avec Buggy'; modalDesc='Le secoueur type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles, en secouant le tronc sans endommager l\'arbre.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Récolte avec Buggy</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique avec Parapluie Inversé'; modalDesc='Ce système combine secouage et réception simultanée des olives avant qu\'elles ne touchent le sol, garantissant une propreté et une intégrité parfaites du fruit.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Récolte Parapluie Inversé</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='La Taille Mécanisée'; modalDesc='Des interventions de taille rapides et uniformes, indispensables pour maîtriser le volume des arbres et faciliter le passage des engins de récolte.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- La
+                            Taille Mécanisée</a>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Récolte Manuelle (Olives de Tables)'; modalDesc='Une cueillette délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la table et éviter toute meurtrissure.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
+                            Récolte Manuelle</a>
+
+                        <div class="text-amber-600 font-bold text-xs uppercase tracking-wider mt-6">Etude de
+                            Faisabilité</div>
+                        <a href="#services"
+                            @click="mobileMenuOpen=false; modalTitle='Etude de Faisabilité Technique et Financière'; modalDesc='Avant tout investissement, nous réalisons un diagnostic complet de vos sols, du climat et des ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la viabilité de votre projet oléicole.'; modalOpen=true"
+                            class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- Etude
+                            Technique et Financière</a>
+                    </div>
                 </div>
+
+                <a href="#boutiques" @click="mobileMenuOpen = false"
+                    class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Boutiques</a>
+                <a href="#blog" @click="mobileMenuOpen = false"
+                    class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Blog</a>
+                <a href="#coin-ia" @click="mobileMenuOpen = false"
+                    class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Coin IA pour
+                    l'Olivier</a>
+                <a href="#formation" @click="mobileMenuOpen = false"
+                    class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Formation</a>
+                <a href="#contact" @click="mobileMenuOpen = false"
+                    class="block font-serif text-xl font-semibold hover:text-amber-500 transition">Contact</a>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- HERO SECTION FULLSCREEN -->
     <section id="accueil" class="relative h-screen flex items-center justify-center overflow-hidden">
