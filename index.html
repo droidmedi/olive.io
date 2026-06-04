@@ -97,7 +97,7 @@
 </head>
 
 <body
-    class="bg-stone-50 text-neutral-900 dark:bg-neutral-900 dark:text-stone-100 transition-colors duration-300 antialiased">
+    class="bg-stone-50 text-neutral-900 dark:bg-neutral-900 dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden">
 
     <!-- LOADER ANIMÉ -->
     <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-stone-900 text-amber-400 loader">
@@ -211,7 +211,7 @@
             <!-- Outils (Langue, Dark Mode) -->
             <div class="flex items-center space-x-4">
                 <!-- Sélecteur Langue -->
-                <div class="relative" x-data="{ open: false }">
+                <div class="relative hidden" x-data="{ open: false }">
                     <button @click="open = !open"
                         class="text-sm font-semibold uppercase flex items-center space-x-1 border border-neutral-300 dark:border-neutral-700 px-3 py-1 rounded">
                         <span x-text="lang"></span> <i class="fa-solid fa-chevron-down text-xs"></i>
