@@ -52,6 +52,57 @@
         .loader {
             transition: opacity 0.5s ease-out, visibility 0.5s;
         }
+
+        /* ===== MOBILE NAVBAR RESPONSIVE ===== */
+        @media (max-width: 639px) {
+            .navbar-container {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            .navbar-logo {
+                gap: 6px !important;
+                font-size: 0.95rem !important;
+            }
+
+            .navbar-logo img {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            .navbar-logo .logo-text {
+                max-width: 120px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .navbar-tools {
+                gap: 4px !important;
+            }
+
+            .navbar-tools button {
+                padding: 6px !important;
+                font-size: 1rem !important;
+            }
+
+            /* Reduce navbar vertical padding on mobile */
+            nav.mobile-compact {
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+            }
+
+            nav.mobile-compact-scrolled {
+                padding-top: 8px !important;
+                padding-bottom: 8px !important;
+            }
+        }
+
+        @media (min-width: 640px) and (max-width: 767px) {
+            .navbar-logo {
+                font-size: 1.1rem !important;
+            }
+        }
     </style>
     <script type="application/ld+json">
 {
@@ -108,14 +159,14 @@
     </div>
 
     <!-- NAVBAR STICKY & TRANSPARENTE -->
-    <nav :class="scrolle ? 'bg-white/90 dark:bg-neutral-900/90 shadow-lg backdrop-blur-md py-4 text-neutral-900 dark:text-stone-100' : 'bg-transparent py-6 text-white'"
+    <nav :class="scrolle ? 'bg-white/90 dark:bg-neutral-900/90 shadow-lg backdrop-blur-md py-4 sm:py-4 text-neutral-900 dark:text-stone-100 mobile-compact-scrolled' : 'bg-transparent py-4 sm:py-6 text-white mobile-compact'"
         class="fixed w-full top-0 left-0 z-40 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
+        <div class="navbar-container max-w-7xl mx-auto px-3 sm:px-4 md:px-6 flex justify-between items-center">
             <a href="#" :class="scrolle ? 'text-olive-800 dark:text-amber-400' : 'text-white'"
-                class="font-serif text-lg md:text-2xl font-bold tracking-wider flex items-center gap-2 md:gap-3 transition-colors shrink-0">
+                class="navbar-logo font-serif text-base sm:text-lg md:text-2xl font-bold tracking-wider flex items-center gap-1.5 sm:gap-2 md:gap-3 transition-colors shrink-0 min-w-0">
                 <img src="https://ik.imagekit.io/t7f24dkfq/imageolive/logo-olive.jpeg" alt="Logo Washingtonia"
-                    class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-full shadow-sm border border-amber-500 shrink-0">
-                <span class="truncate max-w-[140px] sm:max-w-none">WASHINGTONIA</span>
+                    class="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 object-cover rounded-full shadow-sm border border-amber-500 shrink-0">
+                <span class="logo-text truncate">WASHINGTONIA</span>
             </a>
 
             <!-- Menu Desktop -->
@@ -209,7 +260,7 @@
             </div>
 
             <!-- Outils (Langue, Dark Mode) -->
-            <div class="flex items-center space-x-2 md:space-x-4 shrink-0">
+            <div class="navbar-tools flex items-center gap-1 sm:gap-2 md:gap-4 shrink-0">
                 <!-- Sélecteur Langue -->
                 <div class="relative hidden" x-data="{ open: false }">
                     <button @click="open = !open"
@@ -229,13 +280,13 @@
 
                 <!-- Dark Mode Toggle -->
                 <button @click="darkMode = !darkMode"
-                    class="p-1.5 md:p-2 text-base md:text-lg hover:text-amber-500 transition">
+                    class="p-1 sm:p-1.5 md:p-2 text-sm sm:text-base md:text-lg hover:text-amber-500 transition rounded-full hover:bg-white/10">
                     <i :class="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
                 </button>
 
                 <!-- Hamburger Menu (Mobile) -->
                 <button @click="mobileMenuOpen = true"
-                    class="xl:hidden p-1.5 md:p-2 text-xl md:text-2xl hover:text-amber-500 transition">
+                    class="xl:hidden p-1 sm:p-1.5 md:p-2 text-lg sm:text-xl md:text-2xl hover:text-amber-500 transition rounded-full hover:bg-white/10">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
