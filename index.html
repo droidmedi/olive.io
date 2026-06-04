@@ -110,12 +110,12 @@
     <!-- NAVBAR STICKY & TRANSPARENTE -->
     <nav :class="scrolle ? 'bg-white/90 dark:bg-neutral-900/90 shadow-lg backdrop-blur-md py-4 text-neutral-900 dark:text-stone-100' : 'bg-transparent py-6 text-white'"
         class="fixed w-full top-0 left-0 z-40 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
             <a href="#" :class="scrolle ? 'text-olive-800 dark:text-amber-400' : 'text-white'"
-                class="font-serif text-2xl font-bold tracking-wider flex items-center gap-3 transition-colors">
+                class="font-serif text-lg md:text-2xl font-bold tracking-wider flex items-center gap-2 md:gap-3 transition-colors shrink-0">
                 <img src="https://ik.imagekit.io/t7f24dkfq/imageolive/logo-olive.jpeg" alt="Logo Washingtonia"
-                    class="w-10 h-10 object-cover rounded-full shadow-sm border border-amber-500">
-                <span>WASHINGTONIA</span>
+                    class="w-8 h-8 md:w-10 md:h-10 object-cover rounded-full shadow-sm border border-amber-500 shrink-0">
+                <span class="truncate max-w-[140px] sm:max-w-none">WASHINGTONIA</span>
             </a>
 
             <!-- Menu Desktop -->
@@ -209,7 +209,7 @@
             </div>
 
             <!-- Outils (Langue, Dark Mode) -->
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2 md:space-x-4 shrink-0">
                 <!-- Sélecteur Langue -->
                 <div class="relative hidden" x-data="{ open: false }">
                     <button @click="open = !open"
@@ -228,12 +228,14 @@
                 </div>
 
                 <!-- Dark Mode Toggle -->
-                <button @click="darkMode = !darkMode" class="p-2 text-lg hover:text-amber-500 transition">
+                <button @click="darkMode = !darkMode"
+                    class="p-1.5 md:p-2 text-base md:text-lg hover:text-amber-500 transition">
                     <i :class="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
                 </button>
 
                 <!-- Hamburger Menu (Mobile) -->
-                <button @click="mobileMenuOpen = true" class="xl:hidden p-2 text-2xl hover:text-amber-500 transition">
+                <button @click="mobileMenuOpen = true"
+                    class="xl:hidden p-1.5 md:p-2 text-xl md:text-2xl hover:text-amber-500 transition">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
