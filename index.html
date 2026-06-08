@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr"
-    x-data="{ darkMode: false, lang: 'fr', scrolle: false, modalOpen: false, modalTitle: '', modalDesc: '', mobileMenuOpen: false }"
+<html lang="fr" x-data="{ darkMode: false, lang: 'fr', scrolle: false, mobileMenuOpen: false }"
     :class="{ 'dark': darkMode }" @scroll.window="scrolle = (window.pageYOffset > 50) ? true : false">
 
 <head>
@@ -193,24 +192,19 @@
                                 class="text-amber-600 dark:text-amber-400 font-bold mb-2 pb-1 border-b border-neutral-100 dark:border-neutral-700 text-xs uppercase tracking-wider">
                                 Conseil - Production</div>
                             <div class="grid grid-cols-2 gap-1 mb-4">
-                                <a href="#services"
-                                    @click="modalTitle='Irrigation'; modalDesc='L\'irrigation raisonnée est essentielle pour optimiser la croissance de l\'olivier, améliorer le rendement et garantir la qualité des olives tout en préservant les ressources en eau.'; modalOpen=true; open=false"
+                                <a href="#service-irrigation" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Irrigation</a>
-                                <a href="#services"
-                                    @click="modalTitle='Ferti - irrigation'; modalDesc='La ferti-irrigation combine l\'apport d\'eau et de nutriments essentiels directement aux racines de l\'olivier, assurant une nutrition ciblée et une efficacité maximale des engrais.'; modalOpen=true; open=false"
+                                <a href="#service-ferti-irrigation" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Ferti - irrigation</a>
-                                <a href="#services"
-                                    @click="modalTitle='Engrais Foliaires'; modalDesc='L\'application d\'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles, corrigeant instantanément les carences et stimulant la floraison et la nouaison.'; modalOpen=true; open=false"
+                                <a href="#service-engrais-foliaires" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Engrais Foliaires</a>
-                                <a href="#services"
-                                    @click="modalTitle='Traitements Phytosanitaires'; modalDesc='Nos protocoles de traitements phytosanitaires protègent vos oliviers contre les maladies et les ravageurs, en utilisant des méthodes respectueuses de l\'environnement et des normes de sécurité.'; modalOpen=true; open=false"
+                                <a href="#service-phytosanitaires" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Traitements Phytosanitaires</a>
-                                <a href="#services"
-                                    @click="modalTitle='La Taille'; modalDesc='La taille de fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la pénétration de la lumière et assurer une récolte abondante et régulière année après année.'; modalOpen=true; open=false"
+                                <a href="#service-taille" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     La Taille</a>
                             </div>
@@ -220,36 +214,29 @@
                                 class="text-amber-600 dark:text-amber-400 font-bold mb-2 pb-1 border-b border-neutral-100 dark:border-neutral-700 text-xs uppercase tracking-wider">
                                 Sous-traitance oléicole</div>
                             <div class="space-y-1 mb-4 text-xs">
-                                <a href="#services"
-                                    @click="modalTitle='Plantation mécanisée avec GPS'; modalDesc='Une plantation de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une densité optimale et un gain de temps considérable pour vos nouvelles parcelles.'; modalOpen=true; open=false"
+                                <a href="#service-plantation-gps" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Plantation mécanisée avec GPS</a>
-                                <a href="#services"
-                                    @click="modalTitle='Récolte Mécanique par Enjambeur'; modalDesc='Solution idéale pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité exceptionnelle et préserve la qualité des olives en limitant les chocs.'; modalOpen=true; open=false"
+                                <a href="#service-recolte-enjambeur" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Récolte Mécanique par Enjambeur</a>
-                                <a href="#services"
-                                    @click="modalTitle='Récolte Mécanique avec Buggy'; modalDesc='Le secoueur type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles, en secouant le tronc sans endommager l\'arbre.'; modalOpen=true; open=false"
+                                <a href="#service-recolte-buggy" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Récolte Mécanique avec Buggy</a>
-                                <a href="#services"
-                                    @click="modalTitle='Récolte Mécanique avec Parapluie Inversé'; modalDesc='Ce système combine secouage et réception simultanée des olives avant qu\'elles ne touchent le sol, garantissant une propreté et une intégrité parfaites du fruit.'; modalOpen=true; open=false"
+                                <a href="#service-recolte-parapluie" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Récolte Mécanique avec Parapluie Inversé</a>
-                                <a href="#services"
-                                    @click="modalTitle='La Taille Mécanisée'; modalDesc='Des interventions de taille rapides et uniformes, indispensables pour maîtriser le volume des arbres et faciliter le passage des engins de récolte.'; modalOpen=true; open=false"
+                                <a href="#service-taille-mecanisee" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     La Taille</a>
-                                <a href="#services"
-                                    @click="modalTitle='Récolte Manuelle (Olives de Tables)'; modalDesc='Une cueillette délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la table et éviter toute meurtrissure.'; modalOpen=true; open=false"
+                                <a href="#service-recolte-manuelle" @click="open=false"
                                     class="block px-2 py-1 hover:text-amber-500 transition text-neutral-600 dark:text-stone-300">-
                                     Récolte Manuelle (Olives de Tables)</a>
                             </div>
 
                             <!-- B3 -->
                             <div class="pt-3 border-t border-neutral-100 dark:border-neutral-700">
-                                <a href="#services"
-                                    @click="modalTitle='Etude de Faisabilité Technique et Financière'; modalDesc='Avant tout investissement, nous réalisons un diagnostic complet de vos sols, du climat et des ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la viabilité de votre projet oléicole.'; modalOpen=true; open=false"
+                                <a href="#service-etude-faisabilite" @click="open=false"
                                     class="block px-2 hover:text-amber-500 transition text-amber-600 dark:text-amber-400 font-bold text-sm">Etude
                                     de Faisabilité Technique et Financière</a>
                             </div>
@@ -335,58 +322,46 @@
 
                         <div class="text-amber-600 font-bold text-xs uppercase tracking-wider">Conseil - Production
                         </div>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Irrigation'; modalDesc='L\'irrigation raisonnée est essentielle pour optimiser la croissance de l\'olivier, améliorer le rendement et garantir la qualité des olives tout en préservant les ressources en eau.'; modalOpen=true"
+                        <a href="#service-irrigation" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Irrigation</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Ferti - irrigation'; modalDesc='La ferti-irrigation combine l\'apport d\'eau et de nutriments essentiels directement aux racines de l\'olivier, assurant une nutrition ciblée et une efficacité maximale des engrais.'; modalOpen=true"
+                        <a href="#service-ferti-irrigation" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- Ferti
                             - irrigation</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Engrais Foliaires'; modalDesc='L\'application d\'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles, corrigeant instantanément les carences et stimulant la floraison et la nouaison.'; modalOpen=true"
+                        <a href="#service-engrais-foliaires" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Engrais Foliaires</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Traitements Phytosanitaires'; modalDesc='Nos protocoles de traitements phytosanitaires protègent vos oliviers contre les maladies et les ravageurs, en utilisant des méthodes respectueuses de l\'environnement et des normes de sécurité.'; modalOpen=true"
+                        <a href="#service-phytosanitaires" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Traitements Phytosanitaires</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='La Taille'; modalDesc='La taille de fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la pénétration de la lumière et assurer une récolte abondante et régulière année après année.'; modalOpen=true"
+                        <a href="#service-taille" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- La
                             Taille</a>
 
                         <div class="text-amber-600 font-bold text-xs uppercase tracking-wider mt-6">Sous-traitance
                             oléicole</div>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Plantation mécanisée avec GPS'; modalDesc='Une plantation de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une densité optimale et un gain de temps considérable pour vos nouvelles parcelles.'; modalOpen=true"
+                        <a href="#service-plantation-gps" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Plantation mécanisée (GPS)</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique par Enjambeur'; modalDesc='Solution idéale pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité exceptionnelle et préserve la qualité des olives en limitant les chocs.'; modalOpen=true"
+                        <a href="#service-recolte-enjambeur" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Récolte par Enjambeur</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique avec Buggy'; modalDesc='Le secoueur type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles, en secouant le tronc sans endommager l\'arbre.'; modalOpen=true"
+                        <a href="#service-recolte-buggy" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Récolte avec Buggy</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Récolte Mécanique avec Parapluie Inversé'; modalDesc='Ce système combine secouage et réception simultanée des olives avant qu\'elles ne touchent le sol, garantissant une propreté et une intégrité parfaites du fruit.'; modalOpen=true"
+                        <a href="#service-recolte-parapluie" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Récolte Parapluie Inversé</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='La Taille Mécanisée'; modalDesc='Des interventions de taille rapides et uniformes, indispensables pour maîtriser le volume des arbres et faciliter le passage des engins de récolte.'; modalOpen=true"
+                        <a href="#service-taille-mecanisee" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- La
                             Taille Mécanisée</a>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Récolte Manuelle (Olives de Tables)'; modalDesc='Une cueillette délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la table et éviter toute meurtrissure.'; modalOpen=true"
+                        <a href="#service-recolte-manuelle" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">-
                             Récolte Manuelle</a>
 
                         <div class="text-amber-600 font-bold text-xs uppercase tracking-wider mt-6">Etude de
                             Faisabilité</div>
-                        <a href="#services"
-                            @click="mobileMenuOpen=false; modalTitle='Etude de Faisabilité Technique et Financière'; modalDesc='Avant tout investissement, nous réalisons un diagnostic complet de vos sols, du climat et des ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la viabilité de votre projet oléicole.'; modalOpen=true"
+                        <a href="#service-etude-faisabilite" @click="mobileMenuOpen=false"
                             class="block text-sm text-neutral-600 dark:text-stone-400 hover:text-amber-500">- Etude
                             Technique et Financière</a>
                     </div>
@@ -503,40 +478,46 @@
                         <i class="fa-solid fa-leaf text-amber-500 text-3xl"></i>
                         <h3 class="font-serif text-2xl font-bold">Conseil - Production</h3>
                     </div>
-                    <ul class="space-y-3">
-                        <li><button
-                                @click="modalTitle='Irrigation'; modalDesc='L\'irrigation raisonnée est essentielle pour optimiser la croissance de l\'olivier, améliorer le rendement et garantir la qualité des olives tout en préservant les ressources en eau.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Irrigation</span>
-                                <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                    <ul class="space-y-4">
+                        <li id="service-irrigation"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Irrigation</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">L'irrigation
+                                raisonnée est essentielle pour optimiser la croissance de l'olivier, améliorer le
+                                rendement et garantir la qualité des olives tout en préservant les ressources en eau.
+                            </p>
                         </li>
-
-                        <li><button
-                                @click="modalTitle='Ferti - irrigation'; modalDesc='La ferti-irrigation combine l\'apport d\'eau et de nutriments essentiels directement aux racines de l\'olivier, assurant une nutrition ciblée et une efficacité maximale des engrais.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Ferti
-                                    - irrigation</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-ferti-irrigation"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Ferti - irrigation</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">La
+                                ferti-irrigation combine l'apport d'eau et de nutriments essentiels directement aux
+                                racines de l'olivier, assurant une nutrition ciblée et une efficacité maximale des
+                                engrais.</p>
                         </li>
-
-                        <li><button
-                                @click="modalTitle='Engrais Foliaires'; modalDesc='L\'application d\'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles, corrigeant instantanément les carences et stimulant la floraison et la nouaison.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Engrais
-                                    Foliaires</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-engrais-foliaires"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Engrais Foliaires</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">L'application
+                                d'engrais foliaires permet une absorption rapide des oligo-éléments par les feuilles,
+                                corrigeant instantanément les carences et stimulant la floraison et la nouaison.</p>
                         </li>
-
-                        <li><button
-                                @click="modalTitle='Traitements Phytosanitaires'; modalDesc='Nos protocoles de traitements phytosanitaires protègent vos oliviers contre les maladies et les ravageurs, en utilisant des méthodes respectueuses de l\'environnement et des normes de sécurité.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Traitements
-                                    Phytosanitaires</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-phytosanitaires"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Traitements
+                                Phytosanitaires</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Nos protocoles
+                                de traitements phytosanitaires protègent vos oliviers contre les maladies et les
+                                ravageurs, en utilisant des méthodes respectueuses de l'environnement et des normes de
+                                sécurité.</p>
                         </li>
-
-                        <li><button
-                                @click="modalTitle='La Taille'; modalDesc='La taille de fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la pénétration de la lumière et assurer une récolte abondante et régulière année après année.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>La
-                                    Taille</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-taille"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">La Taille</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">La taille de
+                                fructification et de formation est cruciale pour équilibrer la frondaison, favoriser la
+                                pénétration de la lumière et assurer une récolte abondante et régulière année après
+                                année.</p>
                         </li>
                     </ul>
                 </div>
@@ -548,47 +529,58 @@
                         <i class="fa-solid fa-gears text-amber-500 text-3xl"></i>
                         <h3 class="font-serif text-2xl font-bold">Sous-traitance oléicole</h3>
                     </div>
-                    <ul class="space-y-3">
-                        <li><button
-                                @click="modalTitle='Plantation mécanisée avec GPS'; modalDesc='Une plantation de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une densité optimale et un gain de temps considérable pour vos nouvelles parcelles.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Plantation
-                                    mécanisée (GPS)</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                    <ul class="space-y-4">
+                        <li id="service-plantation-gps"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Plantation mécanisée avec
+                                GPS</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Une plantation
+                                de haute précision grâce à la technologie GPS, garantissant un alignement parfait, une
+                                densité optimale et un gain de temps considérable pour vos nouvelles parcelles.</p>
                         </li>
 
-                        <li><button
-                                @click="modalTitle='Récolte Mécanique par Enjambeur'; modalDesc='Solution idéale pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité exceptionnelle et préserve la qualité des olives en limitant les chocs.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
-                                    par Enjambeur</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-recolte-enjambeur"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Récolte Mécanique par
+                                Enjambeur</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Solution idéale
+                                pour les vergers super-intensifs, la récolte par enjambeur offre une rapidité
+                                exceptionnelle et préserve la qualité des olives en limitant les chocs.</p>
                         </li>
 
-                        <li><button
-                                @click="modalTitle='Récolte Mécanique avec Buggy'; modalDesc='Le secoueur type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles, en secouant le tronc sans endommager l\'arbre.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
-                                    avec Buggy</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-recolte-buggy"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Récolte Mécanique avec
+                                Buggy</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Le secoueur
+                                type Buggy permet une récolte efficace sur des oliveraies intensives ou traditionnelles,
+                                en secouant le tronc sans endommager l'arbre.</p>
                         </li>
 
-                        <li><button
-                                @click="modalTitle='Récolte Mécanique avec Parapluie Inversé'; modalDesc='Ce système combine secouage et réception simultanée des olives avant qu\'elles ne touchent le sol, garantissant une propreté et une intégrité parfaites du fruit.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
-                                    Parapluie Inversé</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-recolte-parapluie"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Récolte Mécanique avec
+                                Parapluie Inversé</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Ce système
+                                combine secouage et réception simultanée des olives avant qu'elles ne touchent le sol,
+                                garantissant une propreté et une intégrité parfaites du fruit.</p>
                         </li>
 
-                        <li><button
-                                @click="modalTitle='La Taille Mécanisée'; modalDesc='Des interventions de taille rapides et uniformes, indispensables pour maîtriser le volume des arbres et faciliter le passage des engins de récolte.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>La
-                                    Taille</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-taille-mecanisee"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">La Taille Mécanisée</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Des
+                                interventions de taille rapides et uniformes, indispensables pour maîtriser le volume
+                                des arbres et faciliter le passage des engins de récolte.</p>
                         </li>
 
-                        <li><button
-                                @click="modalTitle='Récolte Manuelle (Olives de Tables)'; modalDesc='Une cueillette délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la table et éviter toute meurtrissure.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Récolte
-                                    Manuelle</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                        <li id="service-recolte-manuelle"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Récolte Manuelle (Olives de
+                                Tables)</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Une cueillette
+                                délicate, réalisée à la main, pour préserver la chair intacte des olives destinées à la
+                                table et éviter toute meurtrissure.</p>
                         </li>
                     </ul>
                 </div>
@@ -600,56 +592,17 @@
                         <i class="fa-solid fa-chart-line text-amber-500 text-3xl"></i>
                         <h3 class="font-serif text-2xl font-bold">Étude de Faisabilité</h3>
                     </div>
-                    <ul class="space-y-3">
-                        <li><button
-                                @click="modalTitle='Etude de Faisabilité Technique et Financière'; modalDesc='Avant tout investissement, nous réalisons un diagnostic complet de vos sols, du climat et des ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la viabilité de votre projet oléicole.'; modalOpen=true"
-                                class="w-full text-left px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 hover:border-amber-500 hover:text-amber-600 transition flex justify-between items-center group"><span>Étude
-                                    Technique et Financière</span> <i
-                                    class="fa-solid fa-arrow-right text-xs opacity-0 group-hover:opacity-100 transition"></i></button>
+                    <ul class="space-y-4">
+                        <li id="service-etude-faisabilite"
+                            class="px-4 py-3 bg-white dark:bg-neutral-950 rounded-lg shadow-sm border border-neutral-100 dark:border-neutral-800 scroll-mt-28">
+                            <span class="font-semibold text-amber-600 dark:text-amber-400">Etude de Faisabilité
+                                Technique et Financière</span>
+                            <p class="text-sm text-neutral-500 dark:text-stone-400 mt-1 leading-relaxed">Avant tout
+                                investissement, nous réalisons un diagnostic complet de vos sols, du climat et des
+                                ressources en eau, couplé à un business plan détaillé pour évaluer la rentabilité et la
+                                viabilité de votre projet oléicole.</p>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- MODAL -->
-        <div x-show="modalOpen" style="display: none;" class="fixed inset-0 z-50 flex items-center justify-center">
-            <!-- Overlay -->
-            <div x-show="modalOpen" x-transition.opacity class="absolute inset-0 bg-stone-900/60 backdrop-blur-sm"
-                @click="modalOpen = false"></div>
-
-            <!-- Modal Content -->
-            <div x-show="modalOpen" x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 scale-95 translate-y-4"
-                x-transition:enter-end="opacity-100 scale-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-200"
-                x-transition:leave-start="opacity-100 scale-100 translate-y-0"
-                x-transition:leave-end="opacity-0 scale-95 translate-y-4"
-                class="relative bg-white dark:bg-neutral-900 w-full max-w-lg mx-4 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden z-10">
-
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-4">
-                        <div
-                            class="w-12 h-12 bg-amber-100 dark:bg-neutral-800 rounded-full flex items-center justify-center text-amber-600 mb-4">
-                            <i class="fa-solid fa-info text-xl"></i>
-                        </div>
-                        <button @click="modalOpen = false"
-                            class="text-neutral-400 hover:text-neutral-600 dark:hover:text-stone-300 transition">
-                            <i class="fa-solid fa-xmark text-xl"></i>
-                        </button>
-                    </div>
-
-                    <h3 class="font-serif text-2xl font-bold mb-3" x-text="modalTitle"></h3>
-                    <div class="h-[2px] w-12 bg-amber-500 mb-4"></div>
-                    <p class="text-neutral-600 dark:text-stone-300 leading-relaxed" x-text="modalDesc"></p>
-                </div>
-
-                <div
-                    class="bg-stone-50 dark:bg-neutral-950 p-4 border-t border-neutral-100 dark:border-neutral-800 text-right">
-                    <button @click="modalOpen = false"
-                        class="px-6 py-2 bg-emerald-800 hover:bg-emerald-900 text-white font-medium rounded-lg transition shadow-md">
-                        Fermer
-                    </button>
                 </div>
             </div>
         </div>
